@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+@theme {
+  --color-obsidian: #121316;
+  --color-obsidian-subtle: #16181F;
+  --color-obsidian-card: #1B1E26;
+  --color-obsidian-border: rgba(255, 255, 255, 0.08);
+
+  --color-aurora-cyan: #38BDF8;
+  --color-aurora-teal: #2DD4BF;
+  --color-aurora-purple: #C084FC;
+  --color-aurora-violet: #A855F7;
+  --color-aurora-blue: #60A5FA;
+
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-serif: "Newsreader", Georgia, serif;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  
+  html, body, #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #121316;
+    color: #F1F5F9;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Glassmorphism panel styles */
+.glass-panel {
+  background: rgba(27, 30, 38, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.glass-card-hover:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+/* Aurora Glow Effects */
+.glow-cyan {
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.25);
+}
+
+.glow-purple {
+  box-shadow: 0 0 25px rgba(192, 132, 252, 0.25);
+}
+
+.glow-cyan-border {
+  border-color: rgba(56, 189, 248, 0.45);
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
+}
+
+.glow-purple-border {
+  border-color: rgba(192, 132, 252, 0.45);
+  box-shadow: 0 0 15px rgba(192, 132, 252, 0.2);
+}
+
+/* Smooth dark scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+/* Pulsing aura animation */
+@keyframes orbPulse {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 25px rgba(56, 189, 248, 0.35)) drop-shadow(0 0 45px rgba(192, 132, 252, 0.25));
+  }
+  50% {
+    transform: scale(1.02);
+    filter: drop-shadow(0 0 35px rgba(56, 189, 248, 0.5)) drop-shadow(0 0 60px rgba(192, 132, 252, 0.4));
+  }
+}
+
+.animate-orb-pulse {
+  animation: orbPulse 8s ease-in-out infinite;
+}
